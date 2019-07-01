@@ -30,7 +30,8 @@ export default {
 <style lang="scss" scoped>
 
 header {
-  background: $dark-gray-minus-5;
+  //background: $dark-gray-minus-5;
+  background: $dark-gray;
   height: 160px;
   width: 100%;
 }
