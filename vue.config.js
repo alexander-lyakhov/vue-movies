@@ -1,6 +1,10 @@
 module.exports = {
   productionSourceMap: false,
 
+  configureWebpack: config => {
+    config.resolve.extensions = ['*', '.js', '.vue', '.json']
+  },
+
   css: {
     loaderOptions: {
       sass: {
