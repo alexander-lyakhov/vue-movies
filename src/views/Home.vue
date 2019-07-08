@@ -15,7 +15,7 @@
 <script>
 import searchPanel from '@/components/search-panel.vue';
 import statusArea from '@/components/status-area.vue';
-import movies from '@/components/movies.vue';
+import movies from '@/components/movies';
 
 export default {
   name: 'home',
