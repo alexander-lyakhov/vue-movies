@@ -8,6 +8,9 @@
 
     <main>
       <movies />
+      <div class="pagination-wrapper">
+        <pagination :totalItems="200" />
+      </div>
     </main>
   </div>
 </template>
@@ -16,6 +19,7 @@
 import searchPanel from '@/components/search-panel.vue';
 import statusArea from '@/components/status-area.vue';
 import movies from '@/components/movies';
+import pagination from '@/components/pagination';
 
 export default {
   name: 'home',
@@ -23,6 +27,12 @@ export default {
     searchPanel,
     statusArea,
     movies,
+    pagination,
+  },
+
+  data() {
+    return {
+    }
   },
 };
 </script>
@@ -40,5 +50,12 @@ main {
   max-width: $page-width;
   margin: auto;
   padding: 1rem 1rem;
+
+  .pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 1rem;
+  }
 }
 </style>

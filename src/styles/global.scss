@@ -22,6 +22,14 @@ a {
   user-select: none;
 }
 
+.hidden {
+  visibility: hidden!important;
+}
+
+.invisible {
+  display: none!important;
+}
+
 .button {
   font: 1rem $font-primary;
   color: #000;
