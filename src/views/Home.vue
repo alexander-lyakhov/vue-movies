@@ -7,9 +7,18 @@
     <status-area />
 
     <main>
-      <movies />
+      <movies
+        :offset="moviesOffest"
+        :limit="moviesPerPage"
+      />
+
       <div class="pagination-wrapper">
-        <pagination :totalItems="200" />
+        <pagination
+          :totalItems="total"
+          :itemsPerPage="moviesPerPage"
+          :maxButtons="9"
+          @changePage="updateMovies"
+        />
       </div>
     </main>
   </div>
@@ -20,6 +29,8 @@ import searchPanel from '@/components/search-panel.vue';
 import statusArea from '@/components/status-area.vue';
 import movies from '@/components/movies';
 import pagination from '@/components/pagination';
+
+import {mapState} from 'vuex';
 
 export default {
   name: 'home',
@@ -32,8 +43,21 @@ export default {
 
   data() {
     return {
+      moviesOffest: 0,
+      moviesPerPage: 12
     }
   },
+
+  computed: {
+    ...mapState('movies', ['total'])
+  },
+
+  methods: {
+    updateMovies(data) {
+      this.moviesOffest = data.offset * this.moviesPerPage;
+      console.log('updateMovies', data, this.moviesOffest)
+    }
+  }
 };
 </script>
 

@@ -1,5 +1,5 @@
 ﻿<template>
-  <ul class="pagination noselect" @click="paginationClick">
+  <ul class="pagination noselect" v-if="isVisible" @click="paginationClick">
     <li class="prev" :class="{hidden: currentPage === 1}" @click.stop="prev"> < </li>
 
     <li :class="{current: currentPage === 1}">1</li>
@@ -57,7 +57,11 @@ export default {
   },
 
   created() {
-    this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+    this.$watch('totalItems',
+      (newVal, oldVal) => this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage),
+      {immediate: true}
+    )
+
     this.totalButtons = this.$props.maxButtons < 5 ? 5 : this.$props.maxButtons;
   },
 
@@ -107,24 +111,41 @@ export default {
           length = totalButtons - 4;
       }
 
-      return [...Array(length).keys()].map(el => start + el);
+      if (length > 0) {
+        return [...Array(length).keys()].map(el => start + el);
+      }
+
+      return [];
+    },
+
+    isVisible() {
+      return this.totalPages > 1;
     }
   },
   methods: {
     paginationClick(e) {
-      let currentPage = parseInt(e.target.textContent);
+      let page = parseInt(e.target.textContent);
 
-      if (!isNaN(currentPage)) {
-        this.currentPage = currentPage;
+      if (!isNaN(page)) {
+        this.changePage(page);
       }
     },
 
     prev() {
-      this.currentPage--;
+      this.changePage(this.currentPage - 1);
     },
 
     next() {
-      this.currentPage++;
+      this.changePage(this.currentPage + 1);
+    },
+
+    changePage(value) {
+      this.currentPage = value;
+
+      this.$emit('changePage', {
+        page: value,
+        offset: value - 1
+      })
     }
   },
 }
@@ -164,6 +185,10 @@ $button-border-color: $middle-gray;
       color: $text-color;
       background: $button-color;
       cursor: default;
+    }
+
+    &.hidden {
+      visibility: hidden;
     }
   }
 }

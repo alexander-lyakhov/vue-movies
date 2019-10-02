@@ -24,7 +24,6 @@ export default {
   },
 
   created() {
-    console.log('this.movies', this.movies)
   },
 }
 </script>
