@@ -32,6 +32,11 @@ export default {
     sortBy: {
       type: String,
       default: ''
+    },
+
+    sortOrder: {
+      type: String,
+      default: ''
     }
   },
 
@@ -50,14 +55,18 @@ export default {
 
     sortBy(nVal, oVal) {
       nVal !== oVal && this.getMovies();
+    },
+
+    sortOrder(nVal, oVal) {
+      nVal !== oVal && this.getMovies();
     }
   },
 
   methods: {
     getMovies() {
-      const {offset, limit, sortBy} = this.$props;
+      const {offset, limit, sortBy, sortOrder} = this.$props;
 
-      this.$store.dispatch('movies/GET_MOVIES', {offset, limit, sortBy}).catch(
+      this.$store.dispatch('movies/GET_MOVIES', {offset, limit, sortBy, sortOrder}).catch(
         err => console.log('-- ERROR --', err)
       );
     }

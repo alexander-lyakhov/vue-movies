@@ -1,7 +1,10 @@
 <template>
   <div class="home">
     <header>
-      <search-panel @sort="onSort"/>
+      <search-panel
+        @sort-by="onSortBy"
+        @sort-order="onSortOrder"
+      />
     </header>
 
     <status-area />
@@ -11,6 +14,7 @@
         :offset="moviesOffest"
         :limit="moviesPerPage"
         :sortBy="sortBy"
+        :sortOrder="sortOrder"
       />
 
       <div class="pagination-wrapper">
@@ -46,7 +50,8 @@ export default {
     return {
       moviesOffest: 0,
       moviesPerPage: 12,
-      sortBy: ''
+      sortBy: '',
+      sortOrder: ''
     }
   },
 
@@ -59,8 +64,13 @@ export default {
       this.moviesOffest = data.offset * this.moviesPerPage;
     },
 
-    onSort(value) {
+    onSortBy(value) {
       this.sortBy = value;
+    },
+
+    onSortOrder(value) {
+      console.log('onSortOrder', value)
+      this.sortOrder = value;
     }
   }
 };

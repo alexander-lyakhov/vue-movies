@@ -22,8 +22,8 @@ export default {
   },
 
   actions: {
-    async GET_MOVIES({commit}, {offset, limit, sortBy}) {
-      let res = await api.getMovies(offset, limit, sortBy);
+    async GET_MOVIES({commit}, {offset, limit, sortBy, sortOrder}) {
+      let res = await api.getMovies(offset, limit, sortBy, sortOrder);
       commit('POPULATE_MOVIES', res.data);
       return res;
     }

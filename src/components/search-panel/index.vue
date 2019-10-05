@@ -11,12 +11,18 @@
     </div>
 
     <div class="controls">
-      <span class="search-by">Search by</span>
+      <span class="sort-by">Sort by</span>
 
       <radio-selector>
         <radio-item name="sortBy" v-model="sortBy" val="title" label="Title" checked />
-        <radio-item name="sortBy" v-model="sortBy" val="vote_average" label="Rating" />
         <radio-item name="sortBy" v-model="sortBy" val="release_date" label="Date" />
+      </radio-selector>
+
+      <span class="sort-order">Sort order</span>
+
+      <radio-selector>
+        <radio-item name="sortOrder" v-model="sortOrder" val="asc" label="ASC" checked />
+        <radio-item name="sortOrder" v-model="sortOrder" val="desc" label="DESC" />
       </radio-selector>
 
       <a class="button btn-search lg" href="#">Search</a>
@@ -38,14 +44,19 @@ export default {
 
   data() {
     return {
-      sortBy: ''
+      sortBy: '',
+      sortOrder: ''
     }
   },
 
   watch: {
     sortBy(newValue, oldValue) {
-      this.$emit('sort', newValue);
-    }
+      this.$emit('sort-by', newValue);
+    },
+
+    sortOrder(newValue, oldValue) {
+      this.$emit('sort-order', newValue);
+    },
   }
 }
 </script>
@@ -91,8 +102,12 @@ export default {
     display: flex;
     align-items: center;
 
-    .search-by {
-      margin-right: 1rem;
+    .sort-by, .sort-order {
+      margin-right: .5rem;
+    }
+
+    .radio-selector {
+      margin-right: 2rem;
     }
 
     > .btn-search {
