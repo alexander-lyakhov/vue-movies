@@ -1,0 +1,42 @@
+﻿<template>
+  <div class="radio-selector">
+    <slot></slot>
+  </div>
+</template>
+
+<style lang="scss">
+  $primary-color: $orange;
+
+  .radio-selector {
+    background: $dark-gray-minus-10;
+    border: 2px solid $primary-color;
+    border-radius: 4px;
+    box-sizing: content-box;
+    display: inline-block;
+
+    label {
+      font-family: inherit;
+      font-size: 1rem;
+      user-select: none;
+      cursor: pointer;
+
+      [type="radio"] {
+        display: none;
+
+        & + span {
+          border: 2px solid $dark-gray-minus-10;
+          border-radius: 4px;
+          text-align: center;
+          display: inline-block;
+          min-width: 80px;
+          padding: .25rem 1rem;
+        }
+
+        &:checked + span {
+          color: #000;
+          background: $primary-color;
+        }
+      }
+    }
+  }
+</style>

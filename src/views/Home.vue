@@ -1,15 +1,16 @@
 <template>
   <div class="home">
     <header>
-      <search-panel />
+      <search-panel @sort="onSort"/>
     </header>
 
     <status-area />
 
     <main>
-      <movies
+      <movie-grid
         :offset="moviesOffest"
         :limit="moviesPerPage"
+        :sortBy="sortBy"
       />
 
       <div class="pagination-wrapper">
@@ -17,7 +18,7 @@
           :totalItems="total"
           :itemsPerPage="moviesPerPage"
           :maxButtons="9"
-          @changePage="updateMovies"
+          @changePage="onPageChange"
         />
       </div>
     </main>
@@ -25,9 +26,9 @@
 </template>
 
 <script>
-import searchPanel from '@/components/search-panel.vue';
-import statusArea from '@/components/status-area.vue';
-import movies from '@/components/movies';
+import searchPanel from '@/components/search-panel';
+import statusArea from '@/components/status-area';
+import movieGrid from '@/components/movie-grid';
 import pagination from '@/components/pagination';
 
 import {mapState} from 'vuex';
@@ -37,14 +38,15 @@ export default {
   components: {
     searchPanel,
     statusArea,
-    movies,
+    movieGrid,
     pagination,
   },
 
   data() {
     return {
       moviesOffest: 0,
-      moviesPerPage: 12
+      moviesPerPage: 12,
+      sortBy: ''
     }
   },
 
@@ -53,9 +55,12 @@ export default {
   },
 
   methods: {
-    updateMovies(data) {
+    onPageChange(data) {
       this.moviesOffest = data.offset * this.moviesPerPage;
-      console.log('updateMovies', data, this.moviesOffest)
+    },
+
+    onSort(value) {
+      this.sortBy = value;
     }
   }
 };

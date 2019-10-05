@@ -12,7 +12,7 @@ import movieItem from './movie-item.vue';
 import {mapState} from 'vuex';
 
 export default {
-  name: 'movies',
+  name: 'MovieGrid',
 
   components: {
     movieItem
@@ -23,9 +23,15 @@ export default {
       type: Number,
       default: 0
     },
+
     limit: {
       type: Number,
       default: 24
+    },
+
+    sortBy: {
+      type: String,
+      default: ''
     }
   },
 
@@ -40,15 +46,18 @@ export default {
   watch: {
     offset(nVal, oVal) {
       nVal !== oVal && this.getMovies();
+    },
+
+    sortBy(nVal, oVal) {
+      nVal !== oVal && this.getMovies();
     }
   },
 
   methods: {
     getMovies() {
-      this.$store.dispatch('movies/GET_MOVIES', {
-        offset: this.offset,
-        limit: this.limit
-      }).catch(
+      const {offset, limit, sortBy} = this.$props;
+
+      this.$store.dispatch('movies/GET_MOVIES', {offset, limit, sortBy}).catch(
         err => console.log('-- ERROR --', err)
       );
     }
