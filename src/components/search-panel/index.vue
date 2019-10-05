@@ -32,7 +32,8 @@
 
 <script>
 
-import {radioItem, radioSelector} from '@/components/radio';
+import { radioItem, radioSelector } from '@/components/radio';
+import { mapFields } from 'vuex-map-fields';
 
 export default {
   name: 'SearchPanel',
@@ -42,21 +43,8 @@ export default {
     radioItem
   },
 
-  data() {
-    return {
-      sortBy: '',
-      sortOrder: ''
-    }
-  },
-
-  watch: {
-    sortBy(newValue, oldValue) {
-      this.$emit('sort-by', newValue);
-    },
-
-    sortOrder(newValue, oldValue) {
-      this.$emit('sort-order', newValue);
-    },
+  computed: {
+    ...mapFields('movies', ['sortBy', 'sortOrder'])
   }
 }
 </script>

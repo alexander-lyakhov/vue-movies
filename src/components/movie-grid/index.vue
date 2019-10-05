@@ -18,34 +18,12 @@ export default {
     movieItem
   },
 
-  props: {
-    offset: {
-      type: Number,
-      default: 0
-    },
-
-    limit: {
-      type: Number,
-      default: 24
-    },
-
-    sortBy: {
-      type: String,
-      default: ''
-    },
-
-    sortOrder: {
-      type: String,
-      default: ''
-    }
-  },
-
   created() {
     this.getMovies();
   },
 
   computed: {
-    ...mapState('movies', ['movies'])
+    ...mapState('movies', ['movies', 'offset', 'sortBy', 'sortOrder'])
   },
 
   watch: {
@@ -64,9 +42,7 @@ export default {
 
   methods: {
     getMovies() {
-      const {offset, limit, sortBy, sortOrder} = this.$props;
-
-      this.$store.dispatch('movies/GET_MOVIES', {offset, limit, sortBy, sortOrder}).catch(
+      this.$store.dispatch('movies/GET_MOVIES').catch(
         err => console.log('-- ERROR --', err)
       );
     }

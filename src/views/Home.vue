@@ -1,26 +1,18 @@
 <template>
   <div class="home">
     <header>
-      <search-panel
-        @sort-by="onSortBy"
-        @sort-order="onSortOrder"
-      />
+      <search-panel />
     </header>
 
     <status-area />
 
     <main>
-      <movie-grid
-        :offset="moviesOffest"
-        :limit="moviesPerPage"
-        :sortBy="sortBy"
-        :sortOrder="sortOrder"
-      />
+      <movie-grid />
 
       <div class="pagination-wrapper">
         <pagination
           :totalItems="total"
-          :itemsPerPage="moviesPerPage"
+          :itemsPerPage="limit"
           :maxButtons="9"
           @changePage="onPageChange"
         />
@@ -36,6 +28,7 @@ import movieGrid from '@/components/movie-grid';
 import pagination from '@/components/pagination';
 
 import {mapState} from 'vuex';
+import { mapFields } from 'vuex-map-fields';
 
 export default {
   name: 'home',
@@ -46,32 +39,15 @@ export default {
     pagination,
   },
 
-  data() {
-    return {
-      moviesOffest: 0,
-      moviesPerPage: 12,
-      sortBy: '',
-      sortOrder: ''
-    }
-  },
-
   computed: {
-    ...mapState('movies', ['total'])
+    ...mapState('movies', ['total', 'limit']),
+    ...mapFields('movies', ['offset'])
   },
 
   methods: {
-    onPageChange(data) {
-      this.moviesOffest = data.offset * this.moviesPerPage;
+    onPageChange(e) {
+      this.offset = e.offset * this.limit;
     },
-
-    onSortBy(value) {
-      this.sortBy = value;
-    },
-
-    onSortOrder(value) {
-      console.log('onSortOrder', value)
-      this.sortOrder = value;
-    }
   }
 };
 </script>
