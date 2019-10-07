@@ -6,6 +6,7 @@
 
 <style lang="scss">
   $primary-color: $orange;
+  $secondary-color: $cyan;
 
   .radio-selector {
     background: $dark-gray-minus-10;
@@ -35,6 +36,18 @@
         &:checked + span {
           color: #000;
           background: $primary-color;
+        }
+      }
+    }
+
+    &.small {
+      //border: 2px solid #c0c0c0;
+      label {
+        [type="radio"] {
+          & + span {
+            min-width: 48px;
+            padding: 2px 4px;
+          }
         }
       }
     }

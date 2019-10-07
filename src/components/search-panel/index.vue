@@ -19,23 +19,7 @@
         <radio-item name="searchBy" v-model="searchBy" val="genres" label="Genre" />
       </radio-selector>
 
-      <span class="sort-by">Sort by</span>
-
-      <radio-selector>
-        <radio-item name="sortBy" v-model="sortBy" val="title" label="Title" checked />
-        <radio-item name="sortBy" v-model="sortBy" val="release_date" label="Date" />
-      </radio-selector>
-
-      <span class="sort-order">Sort order</span>
-
-      <radio-selector>
-        <radio-item name="sortOrder" v-model="sortOrder" val="asc" label="ASC" checked />
-        <radio-item name="sortOrder" v-model="sortOrder" val="desc" label="DESC" />
-      </radio-selector>
-
-      <!--
       <a class="button btn-search lg" href="#">Search</a>
-      -->
     </div>
   </div>
 </template>
@@ -118,7 +102,6 @@ export default {
 
     &-clear {
       font: 2rem $font-primary;
-      //background: #066;
       color: $light-gray-minus-10;
       display: flex;
       justify-content: center;
