@@ -3,7 +3,7 @@
 <template>
   <div class="search">
     <div class="title">
-      Find movie
+      Search movie
     </div>
 
     <div class="query">
@@ -58,6 +58,7 @@ export default {
 
     clearSearch() {
       this.search = '';
+      this.setSearch();
       this.$refs['query-input'].focus();
     }
   }

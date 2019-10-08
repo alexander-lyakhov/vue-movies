@@ -29,10 +29,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .movie-item--wrapper {
   width: 25%;
   margin: .25rem 0;
   padding: 0 .25rem;
+  transition: transform .2s;
+  cursor: pointer;
 
   .movie-item {
     height: 100%;
@@ -62,6 +65,7 @@ export default {
         justify-content: center;
         align-items: center;
         height: 4rem;
+        line-height: 1.05;
         position: relative;
         padding: 0 .5rem;
         z-index: 1;
