@@ -40,7 +40,16 @@ export default {
   .movie-item {
     height: 100%;
     background: #000;
+    border: 0.25rem solid #fff;
+    box-sizing: border-box;
     position: relative;
+    transition: transform .2s;
+
+    &:hover {
+      //box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+      //transform: scale(1.05);
+      z-index: 1;
+    }
 
     img {
       border: none;
@@ -65,7 +74,7 @@ export default {
         justify-content: center;
         align-items: center;
         height: 4rem;
-        line-height: 1.05;
+        line-height: 1;
         position: relative;
         padding: 0 .5rem;
         z-index: 1;

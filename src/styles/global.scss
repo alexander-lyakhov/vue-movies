@@ -5,7 +5,7 @@ html, body {
 body {
   font: 16px $font-primary, verdana;
   color: $text-color;
-  background: $dark-gray;
+  background: $dark-grey;
 }
 
 a {
@@ -48,7 +48,7 @@ a {
 
   &.selected {
     color: $text-color;
-    background: $middle-gray;
+    background: $middle-grey;
   }
 
   &.lg {

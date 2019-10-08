@@ -68,11 +68,11 @@ export default {
 <style lang="scss" scoped>
 
 .movies {
-  background: $middle-grey;
+  //background: $middle-grey;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding: .25rem;
+  //padding: .25rem;
 }
 
 .not-found {

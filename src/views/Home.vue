@@ -64,7 +64,7 @@ header {
 main {
   max-width: $page-width;
   margin: auto;
-  padding: 1rem 1rem;
+  padding: 1rem .75rem;
 
   .pagination-wrapper {
     display: flex;
