@@ -68,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 
 .movies {
-  background: $middle-gray;
+  background: $middle-grey;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -77,8 +77,8 @@ export default {
 
 .not-found {
   font: 3rem $font-primary;
-  color: $light-gray;
-  background: $dark-gray;
+  color: $light-grey;
+  background: $dark-grey;
   text-align: center;
   width: 100%;
   margin: auto;

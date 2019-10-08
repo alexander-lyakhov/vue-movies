@@ -68,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 
 .search {
-  background: $dark-gray;
+  background: $dark-grey;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,7 +79,7 @@ export default {
 
   .title {
     font: 1.25rem $font-primary;
-    color: $light-gray-plus-5;
+    color: $light-grey-plus-5;
     padding: .5rem 0;
   }
 
@@ -103,7 +103,7 @@ export default {
 
     &-clear {
       font: 2rem $font-primary;
-      color: $light-gray-minus-10;
+      color: $light-grey-minus-10;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -112,13 +112,13 @@ export default {
       transform: rotate(45deg);
 
       &:hover {
-        color: $light-gray-plus-10;
+        color: $light-grey-plus-10;
       }
     }
   }
   .controls {
     font: 1.25rem $font-primary;
-    color: $light-gray-plus-5;
+    color: $light-grey-plus-5;
     height: 5rem;
     display: flex;
     align-items: center;

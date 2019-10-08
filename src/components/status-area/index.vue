@@ -48,8 +48,8 @@ export default {
 
 .status-area {
   font: 1rem $font-primary;
-  color: $light-gray;
-  background: $dark-gray-plus-5;
+  color: $light-grey;
+  background: $dark-grey-plus-5;
   width: 100%;
 
   .status-bar {

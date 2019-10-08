@@ -9,7 +9,7 @@
   $secondary-color: $cyan;
 
   .radio-selector {
-    background: $dark-gray-minus-10;
+    background: $dark-grey-minus-10;
     border: 2px solid $primary-color;
     border-radius: 4px;
     box-sizing: content-box;
@@ -25,7 +25,7 @@
         display: none;
 
         & + span {
-          border: 2px solid $dark-gray-minus-10;
+          border: 2px solid $dark-grey-minus-10;
           border-radius: 4px;
           text-align: center;
           display: inline-block;

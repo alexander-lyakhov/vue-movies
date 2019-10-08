@@ -153,8 +153,8 @@ export default {
 
 <style lang="scss" scoped>
 
-$button-color: $dark-gray;
-$button-border-color: $middle-gray;
+$button-color: $dark-grey;
+$button-border-color: $middle-grey;
 
 .pagination {
   display: flex;
@@ -173,7 +173,7 @@ $button-border-color: $middle-gray;
     cursor: pointer;
 
     &.current {
-      background: $dark-gray-minus-10;
+      background: $dark-grey-minus-10;
       border: 2px solid $orange;
     }
 
