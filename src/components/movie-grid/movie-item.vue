@@ -40,7 +40,7 @@ export default {
   .movie-item {
     height: 100%;
     background: #000;
-    border: 0.25rem solid #fff;
+    border: 1px solid $light-grey;
     box-sizing: border-box;
     position: relative;
     transition: transform .2s;
