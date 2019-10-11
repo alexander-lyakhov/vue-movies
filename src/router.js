@@ -14,6 +14,11 @@ export default new Router({
       component: Home,
     },
     {
+      path: '/movie',
+      name: 'movie',
+      component: () => import('./views/Movie.vue'),
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -21,5 +26,9 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
     },
+    {
+      path: '*',
+      redirect: '/'
+    }
   ],
 });
