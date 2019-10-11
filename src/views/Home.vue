@@ -55,8 +55,6 @@ export default {
 <style lang="scss" scoped>
 
 header {
-  //background: $dark-grey-minus-5;
-  background: $dark-grey;
   height: 160px;
   width: 100%;
 }

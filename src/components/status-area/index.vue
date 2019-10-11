@@ -15,8 +15,8 @@
         <span class="sort-order">Sort order</span>
 
         <radio-selector class="small">
-          <radio-item name="sortOrder" v-model="sortOrder" val="asc" label="Asc" checked />
-          <radio-item name="sortOrder" v-model="sortOrder" val="desc" label="Desc" />
+          <radio-item name="sortOrder" v-model="sortOrder" val="asc" label="A-Z" checked />
+          <radio-item name="sortOrder" v-model="sortOrder" val="desc" label="Z-A" />
         </radio-selector>
       </div>
     </div>
@@ -48,8 +48,9 @@ export default {
 
 .status-area {
   font: 1rem $font-primary;
-  color: $light-grey;
-  background: $dark-grey-plus-5;
+  color: #fff;
+  //background: rgba(255,255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.4);
   width: 100%;
 
   .status-bar {
@@ -57,7 +58,7 @@ export default {
     align-items: center;
     max-width: $page-width;
     margin: auto;
-    padding: 0rem 1rem;
+    padding: 0.25rem 1rem;
   }
 
   .sort-panel {
@@ -65,6 +66,7 @@ export default {
     margin: 0 0 0 auto;
 
     .search-by, .sort-by, .sort-order {
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
       margin-right: .5rem;
     }
 

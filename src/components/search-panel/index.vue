@@ -68,7 +68,6 @@ export default {
 <style lang="scss" scoped>
 
 .search {
-  background: $dark-grey;
   display: flex;
   flex-direction: column;
   justify-content: center;
