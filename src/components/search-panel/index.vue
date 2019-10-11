@@ -14,7 +14,7 @@
     <div class="controls">
       <span class="search-by">Search by</span>
 
-      <radio-selector>
+      <radio-selector class="drop-shadow">
         <radio-item name="searchBy" v-model="searchBy" val="title" label="Title" checked />
         <radio-item name="searchBy" v-model="searchBy" val="genres" label="Genre" />
       </radio-selector>
@@ -68,6 +68,7 @@ export default {
 <style lang="scss" scoped>
 
 .search {
+  background: rgba(255, 255, 255, .15);
   display: flex;
   flex-direction: column;
   justify-content: center;

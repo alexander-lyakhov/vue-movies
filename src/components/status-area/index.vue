@@ -50,10 +50,10 @@ export default {
   font: 1rem $font-primary;
   color: #fff;
   //background: rgba(255,255, 255, 0.4);
-  background: rgba(0, 0, 0, 0.4);
   width: 100%;
 
   .status-bar {
+    background: rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
     max-width: $page-width;

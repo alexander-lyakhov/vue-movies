@@ -15,6 +15,10 @@
     box-sizing: content-box;
     display: inline-block;
 
+    &.drop-shadow {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
     label {
       font-family: inherit;
       font-size: 1rem;

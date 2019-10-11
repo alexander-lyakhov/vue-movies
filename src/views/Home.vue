@@ -60,6 +60,7 @@ header {
 }
 
 main {
+  background: rgba(255, 255, 255, .15);
   max-width: $page-width;
   margin: auto;
   padding: 1rem .75rem;
