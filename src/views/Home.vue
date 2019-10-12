@@ -1,15 +1,15 @@
 <template>
-  <div class="home">
-    <header>
+  <page-layout class="movie-details">
+    <template #header>
       <search-panel />
-    </header>
+    </template>
 
-    <status-area>
+    <template #status-area>
       <span class="found">Results found: {{total}}</span>
       <sort-panel />
-    </status-area>
+    </template>
 
-    <main>
+    <template #main>
       <movie-grid />
 
       <div class="pagination-wrapper">
@@ -20,13 +20,15 @@
           @changePage="onPageChange"
         />
       </div>
-    </main>
-  </div>
+    </template>
+  </page-layout>
+
 </template>
 
 <script>
 import searchPanel from '@/components/search-panel';
-import { statusArea, sortPanel } from '@/components/status';
+import { sortPanel } from '@/components/status';
+import pageLayout from '@/components/page-layout';
 import movieGrid from '@/components/movie-grid';
 import pagination from '@/components/pagination';
 
@@ -36,9 +38,10 @@ import { mapFields } from 'vuex-map-fields';
 
 export default {
   name: 'home',
+
   components: {
+    pageLayout,
     searchPanel,
-    statusArea,
     sortPanel,
     movieGrid,
     pagination,
@@ -58,23 +61,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-header {
-  height: 160px;
-  width: 100%;
-}
-
-main {
-  background: rgba(255, 255, 255, .15);
-  max-width: $page-width;
-  margin: auto;
-  padding: 1rem .75rem;
-
   .pagination-wrapper {
     display: flex;
     justify-content: center;
     margin: 1rem 0;
     padding: 1rem;
   }
-}
+
 </style>

@@ -1,43 +1,36 @@
 <template>
-  <div class="movie-details">
-    <header>
+  <page-layout class="movie-details">
+    <template #header>
       <page-header>
         <div class="controls">
           <a class="button btn-search lg" href="#">Back to Search</a>
         </div>
       </page-header>
-    </header>
+    </template>
 
-    <status-area />
-
-    <main>
-    </main>
-  </div>
+    <template #main>
+      main
+    </template>
+  </page-layout>
 </template>
 
 <script>
 
+import pageLayout from '@/components/page-layout';
 import pageHeader from '@/components/page-header';
-import {statusArea} from '@/components/status';
-//import pageLayout from '@/components/page-layout';
 
 export default {
   name: 'movie-details',
 
   components: {
-    pageHeader,
-    statusArea
+    pageLayout,
+    pageHeader
   }
 }
 </script>
 
 
 <style lang="scss" scoped>
-
-header {
-  height: 160px;
-  width: 100%;
-
   .controls {
     height: 4.5rem;
     display: flex;
@@ -45,22 +38,4 @@ header {
     align-items: center;
     margin-top: auto;
   }
-
-}
-
-main {
-  background: rgba(255, 255, 255, .15);
-  max-width: $page-width;
-  margin: auto;
-  padding: 1rem .75rem;
-
-  .pagination-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-    padding: 1rem;
-  }
-}
-
-
 </style>

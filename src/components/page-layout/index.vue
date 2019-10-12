@@ -1,29 +1,27 @@
 ﻿<template>
-  <header>
-    <page-header>
+  <div>
+    <header>
       <slot name="header"></slot>
-    </page-header>
-  </header>
+    </header>
 
-  <status-area>
-    <slot name="status-area"></slot>
-  </status-area>
+    <status-area>
+      <slot name="status-area"></slot>
+    </status-area>
 
-  <main>
-    <slot name="name"></slot>
-  </main>
+    <main>
+      <slot name="main"></slot>
+    </main>
+  </div>
 </template>
 
 <script>
 
-import pageHeader from '@/components/page-header';
 import {statusArea} from '@/components/status';
 
 export default {
   name: 'page-layout',
 
   components: {
-    pageHeader,
     statusArea
   }
 }
