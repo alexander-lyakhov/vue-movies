@@ -1,7 +1,5 @@
-﻿/* eslint-disable */
-
-<template>
-  <div class="search">
+﻿<template>
+  <page-header>
     <div class="title">
       Search movie
     </div>
@@ -21,18 +19,20 @@
 
       <a class="button btn-search lg" href="#">Search</a>
     </div>
-  </div>
+  </page-header>
 </template>
 
 <script>
 
 import { radioItem, radioSelector } from '@/components/radio';
+import pageHeader from '@/components/page-header';
 import { mapFields } from 'vuex-map-fields';
 
 export default {
   name: 'SearchPanel',
 
   components: {
+    pageHeader,
     radioSelector,
     radioItem
   },
@@ -67,74 +67,63 @@ export default {
 
 <style lang="scss" scoped>
 
-.search {
-  background: rgba(255, 255, 255, .15);
+.title {
+  font: 1.25rem $font-primary;
+  color: $light-grey-plus-5;
+  padding: .5rem 0;
+}
+
+.query {
+  background: #000;
+  border-bottom: 2px solid $orange;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: $page-width;
-  height: 100%;
-  margin: auto;
-  padding: 0 1rem;
+  width: 100%;
+  padding: .25rem 0.5rem;
+  //padding-right: 48px;
 
-  .title {
-    font: 1.25rem $font-primary;
-    color: $light-grey-plus-5;
-    padding: .5rem 0;
-  }
-
-  .query {
+  &-input {
+    font: 1.5rem $font-primary;
+    color: $text-color;
     background: #000;
-    border-bottom: 2px solid $orange;
-    display: flex;
+    border: none;
+    outline: none;
     width: 100%;
-    padding: .25rem 0.5rem;
-    //padding-right: 48px;
+    height: 36px;
+  }
 
-    &-input {
-      font: 1.5rem $font-primary;
-      color: $text-color;
-      background: #000;
-      border: none;
-      outline: none;
-      width: 100%;
-      height: 36px;
-    }
+  &-clear {
+    font: 2rem $font-primary;
+    color: $light-grey-minus-10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 100%;
+    transform: rotate(45deg);
 
-    &-clear {
-      font: 2rem $font-primary;
-      color: $light-grey-minus-10;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 24px;
-      height: 100%;
-      transform: rotate(45deg);
-
-      &:hover {
-        color: $light-grey-plus-10;
-      }
+    &:hover {
+      color: $light-grey-plus-10;
     }
   }
-  .controls {
-    font: 1.25rem $font-primary;
-    color: $light-grey-plus-5;
-    height: 4.5rem;
-    display: flex;
-    align-items: center;
-    margin-top: auto;
+}
+.controls {
+  font: 1.25rem $font-primary;
+  color: $light-grey-plus-5;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  margin-top: auto;
 
-    .search-by, .sort-by, .sort-order {
-      margin-right: .5rem;
-    }
+  .search-by, .sort-by, .sort-order {
+    margin-right: .5rem;
+  }
 
-    .radio-selector {
-      margin-right: 2rem;
-    }
+  .radio-selector {
+    margin-right: 2rem;
+  }
 
-    > .btn-search {
-      margin: 0 0 0 auto;
-    }
+  > .btn-search {
+    margin: 0 0 0 auto;
   }
 }
 </style>
