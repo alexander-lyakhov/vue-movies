@@ -11,13 +11,12 @@
 <script>
 
 import searchPanel from '@/components/search-panel';
-import statusArea from '@/components/status-area';
+import {statusArea} from '@/components/status';
 
 export default {
   name: 'movie-details',
 
   components: {
-    searchPanel,
     statusArea
   }
 }

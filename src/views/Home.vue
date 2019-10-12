@@ -4,7 +4,10 @@
       <search-panel />
     </header>
 
-    <status-area />
+    <status-area>
+      <span class="found">Results found: {{total}}</span>
+      <sort-panel />
+    </status-area>
 
     <main>
       <movie-grid />
@@ -23,9 +26,10 @@
 
 <script>
 import searchPanel from '@/components/search-panel';
-import statusArea from '@/components/status-area';
+import { statusArea, sortPanel } from '@/components/status';
 import movieGrid from '@/components/movie-grid';
 import pagination from '@/components/pagination';
+
 
 import {mapState} from 'vuex';
 import { mapFields } from 'vuex-map-fields';
@@ -35,6 +39,7 @@ export default {
   components: {
     searchPanel,
     statusArea,
+    sortPanel,
     movieGrid,
     pagination,
   },
