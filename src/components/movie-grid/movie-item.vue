@@ -1,7 +1,7 @@
 ﻿/* eslint-disable */
 
 <template>
-  <div class="movie-item--wrapper">
+  <div class="movie-item--wrapper" @click="gotoToMovie(movie.id)">
     <div class="movie-item">
       <img :src="movie.poster_path" />
       <div class="release-date">{{movie.release_date.substr(0, 4)}}</div>
@@ -25,6 +25,13 @@ export default {
 
   created() {
   },
+
+  methods: {
+    gotoToMovie(id) {
+      console.log('gotoToMovie', id);
+      this.$router.push({name: 'movie'});
+    }
+  }
 }
 </script>
 

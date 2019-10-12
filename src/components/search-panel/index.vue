@@ -119,9 +119,10 @@ export default {
   .controls {
     font: 1.25rem $font-primary;
     color: $light-grey-plus-5;
-    height: 5rem;
+    height: 4.5rem;
     display: flex;
     align-items: center;
+    margin-top: auto;
 
     .search-by, .sort-by, .sort-order {
       margin-right: .5rem;
