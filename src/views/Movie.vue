@@ -1,11 +1,9 @@
 <template>
   <page-layout class="movie-details">
     <template #header>
-      <page-header>
-        <div class="controls">
-          <a class="button btn-search lg" href="#">Back to Search</a>
-        </div>
-      </page-header>
+      <div class="controls">
+        <a class="button btn-search lg" href="#">Back to Search</a>
+      </div>
     </template>
 
     <template #main>
@@ -17,14 +15,12 @@
 <script>
 
 import pageLayout from '@/components/page-layout';
-import pageHeader from '@/components/page-header';
 
 export default {
   name: 'movie-details',
 
   components: {
-    pageLayout,
-    pageHeader
+    pageLayout
   }
 }
 </script>

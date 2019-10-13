@@ -1,5 +1,5 @@
 ﻿<template>
-  <page-header>
+  <div>
     <div class="title">
       Search movie
     </div>
@@ -19,20 +19,18 @@
 
       <a class="button btn-search lg" href="#">Search</a>
     </div>
-  </page-header>
+  </div>
 </template>
 
 <script>
 
 import { radioItem, radioSelector } from '@/components/radio';
-import pageHeader from '@/components/page-header';
 import { mapFields } from 'vuex-map-fields';
 
 export default {
   name: 'SearchPanel',
 
   components: {
-    pageHeader,
     radioSelector,
     radioItem
   },
