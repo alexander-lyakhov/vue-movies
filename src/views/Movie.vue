@@ -7,7 +7,7 @@
     </template>
 
     <template #main>
-      <div class="movie-info">
+      <div class="movie-info" v-if="showInfo">
         <h2 class="title">{{info.title}}</h2>
         <div class="poster">
           <img :src="info.poster_path" />
@@ -52,28 +52,45 @@ export default {
 
   data() {
     return {
-      info: {}
+      info: {},
+      showInfo: false
     }
   },
 
-  created() {
-    console.log(this.$route.params)
+  beforeRouteLeave(to, from, next) {
+    this.info = {};
+    this.showInfo = false;
+    next();
+  },
 
-    api.getMovie(this.$route.params.id).then(res => {
-      console.log(res.data)
-      this.info = res.data;
-    })
+  created() {
+    this.getMovieInfo(this.$route.params.id)
+  },
+
+  watch: {
+    '$route' (to, from) {
+      if (to.params.id) {
+        this.getMovieInfo(to.params.id);
+      }
+    }
   },
 
   filters: {
     year(val) {
-      console.log('year', val)
-
       if (val) {
         return val.split('-')[0];
       }
 
       return '';
+    }
+  },
+
+  methods: {
+    getMovieInfo(id) {
+      api.getMovie(id).then(res => {
+        this.info = res.data;
+        this.showInfo = true;
+      })
     }
   }
 };
