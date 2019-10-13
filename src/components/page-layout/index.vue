@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div>
     <header>
       <page-header>
@@ -19,16 +19,16 @@
 <script>
 
 import pageHeader from '@/components/page-header';
-import {statusArea} from '@/components/status';
+import { statusArea } from '@/components/status';
 
 export default {
   name: 'page-layout',
 
   components: {
     pageHeader,
-    statusArea
-  }
-}
+    statusArea,
+  },
+};
 </script>
 
 <style lang="scss" scoped>

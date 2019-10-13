@@ -15,14 +15,21 @@
 <script>
 
 import pageLayout from '@/components/page-layout';
+import api from '@/api';
 
 export default {
   name: 'movie-details',
 
   components: {
-    pageLayout
+    pageLayout,
+  },
+
+  created() {
+    console.log(this.$route.params)
+
+    api.getMovie(this.$route.params.id)
   }
-}
+};
 </script>
 
 

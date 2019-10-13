@@ -1,5 +1,5 @@
-﻿import statusArea from './status-area';
+import statusArea from './status-area';
 import sortPanel from './sort-panel';
 
-export {statusArea};
-export {sortPanel};
+export { statusArea };
+export { sortPanel };

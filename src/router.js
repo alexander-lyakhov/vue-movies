@@ -14,7 +14,7 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/movie',
+      path: '/movie/:id',
       name: 'movie',
       component: () => import('./views/Movie.vue'),
     },
@@ -28,7 +28,7 @@ export default new Router({
     },
     {
       path: '*',
-      redirect: '/'
-    }
+      redirect: '/',
+    },
   ],
 });

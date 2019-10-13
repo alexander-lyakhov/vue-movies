@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="status-area">
     <div class="status-bar">
       <slot></slot>

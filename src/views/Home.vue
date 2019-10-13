@@ -26,15 +26,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import { mapFields } from 'vuex-map-fields';
 import searchPanel from '@/components/search-panel';
 import { sortPanel } from '@/components/status';
 import pageLayout from '@/components/page-layout';
 import movieGrid from '@/components/movie-grid';
 import pagination from '@/components/pagination';
 
-
-import {mapState} from 'vuex';
-import { mapFields } from 'vuex-map-fields';
 
 export default {
   name: 'home',
@@ -49,14 +48,14 @@ export default {
 
   computed: {
     ...mapState('movies', ['total', 'limit']),
-    ...mapFields('movies', ['offset'])
+    ...mapFields('movies', ['offset']),
   },
 
   methods: {
     onPageChange(e) {
       this.offset = e.offset * this.limit;
     },
-  }
+  },
 };
 </script>
 

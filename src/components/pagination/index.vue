@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <ul class="pagination noselect" v-if="isVisible" @click="paginationClick">
     <li class="prev" :class="{hidden: currentPage === 1}" @click.stop="prev"> < </li>
 
@@ -34,12 +34,12 @@ export default {
     totalItems: {
       type: Number,
       default: 100,
-      required: true
+      required: true,
     },
 
     itemsPerPage: {
       type: Number,
-      default: 24
+      default: 24,
     },
 
     maxButtons: {
@@ -53,21 +53,20 @@ export default {
       totalPages: 0,
       currentPage: 1,
       totalButtons: 0,
-    }
+    };
   },
 
   created() {
     this.$watch('totalItems',
       (newVal, oldVal) => this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage),
-      {immediate: true}
-    )
+      { immediate: true });
 
     this.totalButtons = this.$props.maxButtons < 5 ? 5 : this.$props.maxButtons;
   },
 
   computed: {
     condition() {
-      let {currentPage, totalPages, totalButtons} = this.$data;
+      const { currentPage, totalPages, totalButtons } = this.$data;
 
       // 1 2 3 4 5 6 7
       if (totalPages <= totalButtons) {
@@ -89,11 +88,12 @@ export default {
     },
 
     range() {
-      let {currentPage, totalPages, totalButtons} = this.$data;
+      const { currentPage, totalPages, totalButtons } = this.$data;
 
-      let start = 0, length = 0;
+      let start = 0; let
+        length = 0;
 
-      switch(this.condition) {
+      switch (this.condition) {
         case 1:
           start = 2;
           length = totalPages - 2;
@@ -120,11 +120,11 @@ export default {
 
     isVisible() {
       return this.totalPages > 1;
-    }
+    },
   },
   methods: {
     paginationClick(e) {
-      let page = parseInt(e.target.textContent);
+      const page = parseInt(e.target.textContent);
 
       if (!isNaN(page)) {
         this.changePage(page);
@@ -144,11 +144,11 @@ export default {
 
       this.$emit('changePage', {
         page: value,
-        offset: value - 1
-      })
-    }
+        offset: value - 1,
+      });
+    },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

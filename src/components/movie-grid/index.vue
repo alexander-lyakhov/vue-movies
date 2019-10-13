@@ -1,4 +1,4 @@
-﻿/* eslint-disable */
+/* eslint-disable */
 
 <template>
   <div class="movies">
@@ -15,14 +15,14 @@
 
 <script>
 
+import { mapState } from 'vuex';
 import movieItem from './movie-item.vue';
-import {mapState} from 'vuex';
 
 export default {
   name: 'MovieGrid',
 
   components: {
-    movieItem
+    movieItem,
   },
 
   created() {
@@ -30,7 +30,7 @@ export default {
   },
 
   computed: {
-    ...mapState('movies', ['movies', 'search', 'searchBy', 'offset', 'sortBy', 'sortOrder'])
+    ...mapState('movies', ['movies', 'search', 'searchBy', 'offset', 'sortBy', 'sortOrder']),
   },
 
   watch: {
@@ -58,11 +58,11 @@ export default {
   methods: {
     getMovies() {
       this.$store.dispatch('movies/GET_MOVIES').catch(
-        err => console.log('-- ERROR --', err)
+        err => console.log('-- ERROR --', err),
       );
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

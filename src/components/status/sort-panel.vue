@@ -1,4 +1,4 @@
-﻿/* eslint-disable */
+/* eslint-disable */
 
 <template>
   <div class="sort-panel">
@@ -32,9 +32,9 @@ export default {
   },
 
   computed: {
-    ...mapFields('movies', ['sortBy', 'sortOrder'])
-  }
-}
+    ...mapFields('movies', ['sortBy', 'sortOrder']),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

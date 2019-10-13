@@ -1,4 +1,4 @@
-﻿/* eslint-disable */
+/* eslint-disable */
 
 <template>
   <div class="movie-item--wrapper" @click="gotoToMovie(movie.id)">
@@ -20,7 +20,7 @@ export default {
   props: {
     movie: Object,
     required: true,
-    default: () => ({})
+    default: () => ({}),
   },
 
   created() {
@@ -29,10 +29,10 @@ export default {
   methods: {
     gotoToMovie(id) {
       console.log('gotoToMovie', id);
-      this.$router.push({name: 'movie'});
-    }
-  }
-}
+      this.$router.push({ name: 'movie', params:{id} });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

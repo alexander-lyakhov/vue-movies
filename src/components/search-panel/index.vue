@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div>
     <div class="title">
       Search movie
@@ -24,21 +24,21 @@
 
 <script>
 
-import { radioItem, radioSelector } from '@/components/radio';
 import { mapFields } from 'vuex-map-fields';
+import { radioItem, radioSelector } from '@/components/radio';
 
 export default {
   name: 'SearchPanel',
 
   components: {
     radioSelector,
-    radioItem
+    radioItem,
   },
 
   data() {
     return {
-      search: ''
-    }
+      search: '',
+    };
   },
 
   mounted() {
@@ -46,7 +46,7 @@ export default {
   },
 
   computed: {
-    ...mapFields('movies', ['searchBy', 'sortBy', 'sortOrder'])
+    ...mapFields('movies', ['searchBy', 'sortBy', 'sortOrder']),
   },
 
   methods: {
@@ -58,9 +58,9 @@ export default {
       this.search = '';
       this.setSearch();
       this.$refs['query-input'].focus();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -1,4 +1,4 @@
-﻿<template>
+<template>
 	<label>
 		<input
 			type="radio"
@@ -14,38 +14,38 @@
 <script>
 
 export default {
-	name: 'RadioItem',
+  name: 'RadioItem',
 
-	props: {
-		name: {
-			type: String,
-			default: 'group'
-		},
+  props: {
+    name: {
+      type: String,
+      default: 'group',
+    },
 
-		checked: {
-			type: Boolean,
-			default: false
-		},
+    checked: {
+      type: Boolean,
+      default: false,
+    },
 
-		label: {
-			type: String,
-			default: 'Title'
-		},
+    label: {
+      type: String,
+      default: 'Title',
+    },
 
-		val: {
-			type: String,
-			default: ''
-		}
-	},
+    val: {
+      type: String,
+      default: '',
+    },
+  },
 
-	created() {
-		this.checked && this.fireInputEvent();
-	},
+  created() {
+    this.checked && this.fireInputEvent();
+  },
 
-	methods: {
-		fireInputEvent() {
-			this.$emit('input', this.val);
-		}
-	}
-}
+  methods: {
+    fireInputEvent() {
+      this.$emit('input', this.val);
+    },
+  },
+};
 </script>
