@@ -34,6 +34,7 @@
           </div>
         </div>
       </div>
+      <movie-grid />
     </template>
   </page-layout>
 </template>
@@ -41,6 +42,7 @@
 <script>
 
 import pageLayout from '@/components/page-layout';
+import movieGrid from '@/components/movie-grid';
 import api from '@/api';
 
 export default {
@@ -48,6 +50,7 @@ export default {
 
   components: {
     pageLayout,
+    movieGrid
   },
 
   data() {
