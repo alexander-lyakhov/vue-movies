@@ -46,6 +46,11 @@ export default {
       type: Number,
       default: 7,
     },
+
+    value: {
+      type: Number,
+      default: 1
+    }
   },
 
   data() {
@@ -59,9 +64,16 @@ export default {
   created() {
     this.$watch('totalItems',
       (newVal, oldVal) => this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage),
-      { immediate: true });
+      { immediate: true }
+    );
 
     this.totalButtons = this.$props.maxButtons < 5 ? 5 : this.$props.maxButtons;
+  },
+
+  watch: {
+    value(newVal, oldVal) {
+      this.changePage(newVal);
+    }
   },
 
   computed: {
@@ -141,11 +153,7 @@ export default {
 
     changePage(value) {
       this.currentPage = value;
-
-      this.$emit('changePage', {
-        page: value,
-        offset: value - 1,
-      });
+      this.$emit('input', this.currentPage);
     },
   },
 };

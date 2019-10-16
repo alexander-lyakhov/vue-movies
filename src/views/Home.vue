@@ -10,14 +10,14 @@
     </template>
 
     <template #main>
-      <movie-grid />
+      <movie-grid @reset="reset" />
 
       <div class="pagination-wrapper">
         <pagination
           :totalItems="total"
           :itemsPerPage="limit"
           :maxButtons="9"
-          @changePage="onPageChange"
+          v-model="currentPage"
         />
       </div>
     </template>
@@ -46,15 +46,27 @@ export default {
     pagination,
   },
 
+  data() {
+    return {
+      currentPage: 1
+    }
+  },
+
+  watch: {
+    currentPage(newVal, oldVal) {
+      this.offset = (newVal - 1) * this.limit;
+    }
+  },
+
   computed: {
     ...mapState('movies', ['total', 'limit']),
     ...mapFields('movies', ['offset']),
   },
 
   methods: {
-    onPageChange(e) {
-      this.offset = e.offset * this.limit;
-    },
+    reset() {
+      this.currentPage = 1;
+    }
   },
 };
 </script>

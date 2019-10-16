@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 <template>
   <div class="movies">
     <template v-if="movies.length">
@@ -35,23 +33,23 @@ export default {
 
   watch: {
     search(nVal, oVal) {
-      nVal !== oVal && this.getMovies();
+      this.offset ? this.reset() : this.getMovies();
     },
 
     searchBy(nVal, oVal) {
-      nVal !== oVal && this.getMovies();
+      this.offset ? this.reset() : this.getMovies();
     },
 
     sortBy(nVal, oVal) {
-      nVal !== oVal && this.getMovies();
+      this.offset ? this.reset() : this.getMovies();
     },
 
     sortOrder(nVal, oVal) {
-      nVal !== oVal && this.getMovies();
+      this.offset ? this.reset() : this.getMovies();
     },
 
     offset(nVal, oVal) {
-      nVal !== oVal && this.getMovies();
+      this.getMovies();
     },
   },
 
@@ -61,6 +59,10 @@ export default {
         err => console.log('-- ERROR --', err),
       );
     },
+
+    reset() {
+      this.$emit('reset');
+    }
   },
 };
 </script>
