@@ -40,7 +40,7 @@
 
 <script>
 
-import pageLayout from '@/components/page-layout';
+import pageLayout from './page-layout';
 import api from '@/api';
 
 export default {
@@ -87,7 +87,7 @@ export default {
 
   methods: {
     getMovieInfo(id) {
-      api.getMovie(id).then(res => {
+      api.getMovieById(id).then(res => {
         this.info = res.data;
         this.showInfo = true;
       })

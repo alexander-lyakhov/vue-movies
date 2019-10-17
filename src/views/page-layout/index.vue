@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <header>
       <page-header>
         <slot name="header"></slot>
@@ -13,6 +13,8 @@
     <main>
       <slot name="main"></slot>
     </main>
+
+    <div class="overlay" v-if="isLoading"></div>
   </div>
 </template>
 
@@ -20,6 +22,7 @@
 
 import pageHeader from '@/components/page-header';
 import { statusArea } from '@/components/status';
+import { flags } from '@/utils';
 
 export default {
   name: 'page-layout',
@@ -28,6 +31,12 @@ export default {
     pageHeader,
     statusArea,
   },
+
+  computed: {
+    isLoading() {
+      return flags.isLoading;
+    }
+  }
 };
 </script>
 
@@ -46,5 +55,16 @@ export default {
     min-height: 100vh;
     margin: - $main-offset auto 0;
     padding: calc(#{$main-offset} + 1rem) .75rem 1rem;
+  }
+
+  .overlay {
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0.25;
+    z-index: 1;
   }
 </style>

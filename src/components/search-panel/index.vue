@@ -17,7 +17,7 @@
         <radio-item name="searchBy" v-model="searchBy" val="genres" label="Genre" />
       </radio-selector>
 
-      <a class="button btn-search lg" href="#">Search</a>
+      <a class="button btn-search lg" href="#" @click="setSearch">Search</a>
     </div>
   </div>
 </template>

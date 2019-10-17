@@ -1,5 +1,5 @@
 <template>
-  <page-layout class="movie-details">
+  <page-layout class="movies">
     <template #header>
       <search-panel />
     </template>
@@ -22,7 +22,6 @@
       </div>
     </template>
   </page-layout>
-
 </template>
 
 <script>
@@ -30,7 +29,7 @@ import { mapState } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
 import searchPanel from '@/components/search-panel';
 import { sortPanel } from '@/components/status';
-import pageLayout from '@/components/page-layout';
+import pageLayout from './page-layout';
 import movieGrid from '@/components/movie-grid';
 import pagination from '@/components/pagination';
 
