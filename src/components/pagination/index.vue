@@ -163,13 +163,14 @@ export default {
 
 $button-color: $dark-grey;
 $button-border-color: $middle-grey;
+$button-bg: rgba(0, 0, 0, 0.25);
 
 .pagination {
   display: flex;
 
   li {
     font: 16px verdana, helvetica;
-    background: $button-color;
+    background: $button-bg;
     border: 1px solid $button-border-color;
     border-radius: 3px;
     display: flex;
@@ -181,7 +182,7 @@ $button-border-color: $middle-grey;
     cursor: pointer;
 
     &.current {
-      background: $dark-grey-minus-10;
+      background: #000;
       border: 2px solid $orange;
     }
 
@@ -191,7 +192,7 @@ $button-border-color: $middle-grey;
 
     &.dots {
       color: $text-color;
-      background: $button-color;
+      background: #000;
       cursor: default;
     }
 

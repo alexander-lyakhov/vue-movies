@@ -19,3 +19,7 @@ $dark-grey-plus-5: lighten($dark-grey, 5%);
 $dark-grey-plus-10: lighten($dark-grey, 10%);
 $dark-grey-minus-5: darken($dark-grey, 5%);
 $dark-grey-minus-10: darken($dark-grey, 10%);
+
+@mixin drop-shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
