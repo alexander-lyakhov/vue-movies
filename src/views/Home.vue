@@ -20,6 +20,10 @@
           v-model="currentPage"
         />
       </div>
+
+      <div class="about-section">
+        <router-link to="about">About</router-link>
+      </div>
     </template>
   </page-layout>
 </template>
@@ -76,6 +80,19 @@ export default {
     justify-content: center;
     margin: 1rem 0;
     padding: 1rem;
+  }
+
+  .about-section {
+    text-align: center;
+    margin: 0 0 1rem 0;
+
+    a {
+      opacity: .5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+
   }
 
 </style>
