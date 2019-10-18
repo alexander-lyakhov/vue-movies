@@ -161,8 +161,7 @@ export default {
 
 <style lang="scss" scoped>
 
-$button-color: $dark-grey;
-$button-border-color: $middle-grey;
+$button-border-color: #808080;
 $button-bg: rgba(0, 0, 0, 0.25);
 
 .pagination {

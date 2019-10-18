@@ -47,14 +47,11 @@ export default {
   .movie-item {
     height: 100%;
     background: #000;
-    //border: 1px solid $middle-grey;
     box-sizing: border-box;
     position: relative;
     transition: transform .2s;
 
     &:hover {
-      //box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
-      //transform: scale(1.05);
       z-index: 1;
     }
 

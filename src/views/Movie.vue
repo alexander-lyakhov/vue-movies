@@ -103,10 +103,7 @@ export default {
     font-weight: normal;
     font-size: 2.5rem;
     color: $orange;
-    //background: #000;
-    //border-bottom: 1px solid #c0c0c0;
     text-shadow: 0 2px 2px rgba(0, 0, 0, .5);
-    //height: 5rem;
     line-height: 3rem;
     text-align: center;
     margin: 0 0 1rem 0;
@@ -130,7 +127,6 @@ export default {
       width: 300px;
       float: left;
       img {
-        //border: 4px solid #fff;
         width: 100%;
       }
     }
@@ -165,17 +161,14 @@ export default {
       .title {
         font: 2.5rem $font-primary;
         color: #fff;
-        //border-bottom: 1px solid #808080;
         padding: 0 0 1rem 0;
         width: 100%;
-        //margin: 0 0 1rem 0;
         text-align: center;
       }
       .overview {
         font-size: 1.125rem;
         font: 1rem verdana, helvetica;
         color: #000;
-        //line-height: 1.5;
         text-align: justify;
       }
     }

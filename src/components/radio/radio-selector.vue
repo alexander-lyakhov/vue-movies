@@ -7,9 +7,10 @@
 <style lang="scss">
   $primary-color: $orange;
   $secondary-color: $cyan;
+  $bg-color: #282828;
 
   .radio-selector {
-    background: $dark-grey-minus-10;
+    background: $bg-color;
     border: 2px solid $primary-color;
     border-radius: 4px;
     box-sizing: content-box;
@@ -29,7 +30,7 @@
         display: none;
 
         & + span {
-          border: 2px solid $dark-grey-minus-10;
+          border: 2px solid $bg-color;
           border-radius: 4px;
           text-align: center;
           display: inline-block;
@@ -45,7 +46,6 @@
     }
 
     &.small {
-      //border: 2px solid #c0c0c0;
       label {
         [type="radio"] {
           & + span {

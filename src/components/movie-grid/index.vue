@@ -79,8 +79,8 @@ export default {
 
 .not-found {
   font: 3rem $font-primary;
-  color: $light-grey;
-  background: $dark-grey;
+  color: $text-color;
+  background: #004080;
   text-align: center;
   width: 100%;
   margin: auto;

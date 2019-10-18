@@ -65,9 +65,13 @@ export default {
 
 <style lang="scss" scoped>
 
+$label-color: #cdcdcd;
+$cross-color: #a8a8a8;
+$cross-hover-color: #e0e0e0;
+
 .title {
   font: 1.25rem $font-primary;
-  color: $light-grey-plus-5;
+  color: $label-color;
   padding: .5rem 0;
 }
 
@@ -77,7 +81,6 @@ export default {
   display: flex;
   width: 100%;
   padding: .25rem 0.5rem;
-  //padding-right: 48px;
 
   &-input {
     font: 1.5rem $font-primary;
@@ -91,7 +94,7 @@ export default {
 
   &-clear {
     font: 2rem $font-primary;
-    color: $light-grey-minus-10;
+    color: $cross-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,13 +103,13 @@ export default {
     transform: rotate(45deg);
 
     &:hover {
-      color: $light-grey-plus-10;
+      color: $cross-hover-color;
     }
   }
 }
 .controls {
   font: 1.25rem $font-primary;
-  color: $light-grey-plus-5;
+  color: $label-color;
   height: 4.5rem;
   display: flex;
   align-items: center;
