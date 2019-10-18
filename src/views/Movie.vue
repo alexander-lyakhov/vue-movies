@@ -1,6 +1,7 @@
 <template>
   <page-layout class="movie-details">
     <template #header>
+      <div class="page-role">Movie Details</div>
       <div class="controls">
         <router-link class="button btn-search lg" to="/">Back to Search</router-link>
       </div>
@@ -9,6 +10,7 @@
     <template #main>
       <div class="movie-info" v-if="showInfo">
         <h2 class="title">{{info.title}}</h2>
+        <h3 :class="{'hidden': !info.tagline}" class="tagline">{{info.tagline}}</h3>
         <div class="poster">
           <img :src="info.poster_path" />
         </div>
@@ -98,6 +100,17 @@ export default {
 
 
 <style lang="scss" scoped>
+  .page-role {
+    font-size: 4rem;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    margin: 1.5rem 0 0 0;
+    opacity: 0.15;
+  }
+
   h2.title {
     font-family: inherit;
     font-weight: normal;
@@ -106,9 +119,24 @@ export default {
     text-shadow: 0 2px 2px rgba(0, 0, 0, .5);
     line-height: 3rem;
     text-align: center;
-    margin: 0 0 1rem 0;
     padding: .75rem 0;
   }
+
+  h3.tagline {
+    font-size: 1.25rem;
+    color: $middle-grey;
+    background: #f0f0f0;
+    text-align: center;
+    margin: 0.25rem 0 1.5rem 0;
+    padding: .25rem 0;
+    @include drop-shadow;
+
+    &.hidden {
+      margin: 0 0 1rem 0;
+      padding: 0;
+    }
+  }
+
   .controls {
     height: 4.5rem;
     display: flex;
