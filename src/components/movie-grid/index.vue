@@ -15,7 +15,6 @@
 
 import { mapState } from 'vuex';
 import movieItem from './movie-item.vue';
-import {flags} from '@/utils';
 
 export default {
   name: 'MovieGrid',
@@ -30,10 +29,6 @@ export default {
 
   computed: {
     ...mapState('movies', ['movies', 'search', 'searchBy', 'offset', 'sortBy', 'sortOrder']),
-
-    isLoading() {
-      return flags.isLoading;
-    }
   },
 
   watch: {

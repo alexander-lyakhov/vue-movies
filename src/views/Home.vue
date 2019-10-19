@@ -36,8 +36,6 @@ import { sortPanel } from '@/components/status';
 import pageLayout from './page-layout';
 import movieGrid from '@/components/movie-grid';
 import pagination from '@/components/pagination';
-import {flags} from '@/utils';
-
 
 export default {
   name: 'home',
@@ -65,10 +63,6 @@ export default {
   computed: {
     ...mapState('movies', ['total', 'limit']),
     ...mapFields('movies', ['offset']),
-
-    isLoading() {
-      return flags.isLoading;
-    }
   },
 
   methods: {

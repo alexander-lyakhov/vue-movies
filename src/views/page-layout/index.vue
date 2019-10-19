@@ -25,7 +25,6 @@
 
 import pageHeader from '@/components/page-header';
 import { statusArea } from '@/components/status';
-import { flags } from '@/utils';
 
 export default {
   name: 'page-layout',
@@ -34,12 +33,6 @@ export default {
     pageHeader,
     statusArea,
   },
-
-  computed: {
-    isLoading() {
-      return flags.isLoading;
-    }
-  }
 };
 </script>
 
