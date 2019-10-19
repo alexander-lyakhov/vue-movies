@@ -50,6 +50,17 @@ export default {
   header {
     height: 160px;
     width: 100%;
+
+    &::v-deep .page-role {
+      font-size: 4rem;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 5rem;
+      margin: 1.5rem 0 0 0;
+      opacity: 0.15;
+    }
   }
 
   main {
