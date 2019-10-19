@@ -12,7 +12,7 @@
     <template #main>
       <movie-grid @reset="reset" />
 
-      <div class="pagination-wrapper">
+      <div class="pagination-wrapper" v-if="!isLoading">
         <pagination
           :totalItems="total"
           :itemsPerPage="limit"
@@ -36,6 +36,7 @@ import { sortPanel } from '@/components/status';
 import pageLayout from './page-layout';
 import movieGrid from '@/components/movie-grid';
 import pagination from '@/components/pagination';
+import {flags} from '@/utils';
 
 
 export default {
@@ -64,6 +65,10 @@ export default {
   computed: {
     ...mapState('movies', ['total', 'limit']),
     ...mapFields('movies', ['offset']),
+
+    isLoading() {
+      return flags.isLoading;
+    }
   },
 
   methods: {

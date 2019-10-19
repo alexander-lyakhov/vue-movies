@@ -1,5 +1,5 @@
 <template>
-  <div class="movies">
+  <div class="movies" v-if="!isLoading">
     <template v-if="movies.length">
       <movie-item v-for="item in movies" :key="item.id" :movie="item" />
     </template>
@@ -15,6 +15,7 @@
 
 import { mapState } from 'vuex';
 import movieItem from './movie-item.vue';
+import {flags} from '@/utils';
 
 export default {
   name: 'MovieGrid',
@@ -29,6 +30,10 @@ export default {
 
   computed: {
     ...mapState('movies', ['movies', 'search', 'searchBy', 'offset', 'sortBy', 'sortOrder']),
+
+    isLoading() {
+      return flags.isLoading;
+    }
   },
 
   watch: {
