@@ -7,27 +7,27 @@ axios.defaults.baseURL = 'http://react-cdp-api.herokuapp.com';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 axios.interceptors.request.use(
-  config => {
+  (config) => {
     flags.isLoading = true;
     return config;
   },
 
-  err => {
+  (err) => {
     flags.isLoading = false;
     return Promise.reject(err);
-  }
+  },
 );
 
 axios.interceptors.response.use(
-  res => {
+  (res) => {
     flags.isLoading = false;
     return res;
   },
 
-  err => {
+  (err) => {
     flags.isLoading = false;
     return Promise.reject(err);
-  }
+  },
 );
 
 function getMovies(params) {
@@ -40,5 +40,5 @@ function getMovieById(id) {
 
 export default {
   getMovies,
-  getMovieById
+  getMovieById,
 };

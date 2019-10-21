@@ -49,8 +49,8 @@ export default {
 
     value: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
 
   data() {
@@ -64,8 +64,7 @@ export default {
   created() {
     this.$watch('totalItems',
       (newVal, oldVal) => this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage),
-      { immediate: true }
-    );
+      { immediate: true });
 
     this.totalButtons = this.$props.maxButtons < 5 ? 5 : this.$props.maxButtons;
   },
@@ -73,7 +72,7 @@ export default {
   watch: {
     value(newVal, oldVal) {
       this.changePage(newVal);
-    }
+    },
   },
 
   computed: {

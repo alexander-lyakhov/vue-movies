@@ -50,14 +50,14 @@ export default {
 
   data() {
     return {
-      currentPage: 1
-    }
+      currentPage: 1,
+    };
   },
 
   watch: {
     currentPage(newVal, oldVal) {
       this.offset = (newVal - 1) * this.limit;
-    }
+    },
   },
 
   computed: {
@@ -68,7 +68,7 @@ export default {
   methods: {
     reset() {
       this.currentPage = 1;
-    }
+    },
   },
 };
 </script>

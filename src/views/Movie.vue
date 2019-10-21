@@ -55,8 +55,8 @@ export default {
   data() {
     return {
       info: {},
-      showInfo: false
-    }
+      showInfo: false,
+    };
   },
 
   beforeRouteLeave(to, from, next) {
@@ -66,15 +66,15 @@ export default {
   },
 
   created() {
-    this.getMovieInfo(this.$route.params.id)
+    this.getMovieInfo(this.$route.params.id);
   },
 
   watch: {
-    '$route' (to, from) {
+    $route(to, from) {
       if (to.params.id) {
         this.getMovieInfo(to.params.id);
       }
-    }
+    },
   },
 
   filters: {
@@ -84,17 +84,17 @@ export default {
       }
 
       return '';
-    }
+    },
   },
 
   methods: {
     getMovieInfo(id) {
-      api.getMovieById(id).then(res => {
+      api.getMovieById(id).then((res) => {
         this.info = res.data;
         this.showInfo = true;
-      })
-    }
-  }
+      });
+    },
+  },
 };
 </script>
 

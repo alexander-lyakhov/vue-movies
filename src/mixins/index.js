@@ -4,6 +4,6 @@ export default {
   computed: {
     isLoading() {
       return flags.isLoading;
-    }
-  }
-}
+    },
+  },
+};
