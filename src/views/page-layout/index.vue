@@ -37,6 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  $min-width: 640px;
   $main-offset: 200px;
   $bg-color: rgba(255, 255, 255, .15);
 
@@ -44,21 +45,30 @@ export default {
     height: 160px;
     width: 100%;
 
-    &::v-deep .page-role {
-      font-size: 4rem;
-      color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 5rem;
-      margin: 1.5rem 0 0 0;
-      opacity: 0.15;
+    .page-header {
+      min-width: $min-width;
+
+      &::v-deep .page-role {
+        font-size: 4rem;
+        color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5rem;
+        margin: 1.5rem 0 0 0;
+        opacity: 0.15;
+      }
     }
+  }
+
+  .status-area {
+    min-width: $min-width;
   }
 
   main {
     background: linear-gradient(to bottom, $bg-color, $bg-color) no-repeat 0 200px;
     max-width: $page-width;
+    min-width: $min-width;
     min-height: 100vh;
     margin: - $main-offset auto 0;
     padding: calc(#{$main-offset} + 1rem) .75rem 1rem;

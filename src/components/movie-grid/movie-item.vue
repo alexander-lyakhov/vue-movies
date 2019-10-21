@@ -96,4 +96,10 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 720px) {
+  .movie-item--wrapper {
+    min-width: 33.33%;
+  }
+}
 </style>
