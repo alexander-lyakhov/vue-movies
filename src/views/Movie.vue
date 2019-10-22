@@ -17,7 +17,7 @@
         <div class="details">
           <div class="row">
             <div class="label">Rating:</div>
-            <div class="value">{{info.vote_average}}</div>
+            <div class="value"><span>{{info.vote_average}}</span></div>
           </div>
           <div class="row">
             <div class="label">Date:</div>
@@ -29,7 +29,11 @@
           </div>
           <div class="row">
             <div class="label">Genre</div>
-            <div class="value">{{ (info.genres || []).join(', ') }}</div>
+            <div class="value">
+              <span v-for="(genre, index) in info.genres" :key="index">
+                {{genre}}
+              </span>
+            </div>
           </div>
           <div class="row">
             <div class="overview">{{info.overview}}</div>
@@ -162,16 +166,15 @@ export default {
           border-bottom: 1px solid $light-grey;
         }
         .value {
-          color: #fff;
-          background: #000;
-          border-radius: 3px;
-          padding: 0.25rem .5rem;
+          color: #000;
+          padding: 0.25rem 0;
           margin-left: auto;
 
           span {
             color: #fff;
             background: #000;
-            border-radius: 3px;
+            border-radius: 4px;
+            margin-left: 4px;
             padding: 0.25rem .5rem;
           }
         }
