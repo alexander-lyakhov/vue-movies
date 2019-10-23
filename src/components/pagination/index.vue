@@ -1,27 +1,27 @@
 <template>
   <ul class="pagination noselect" v-if="isVisible" @click="paginationClick">
-    <li class="prev" :class="{hidden: currentPage === 1}" @click.stop="prev"> < </li>
+    <li class="prev" :class="{hidden: value === 1}" @click.stop="prev"> < </li>
 
-    <li :class="{current: currentPage === 1}">1</li>
+    <li :class="{current: value === 1}">1</li>
     <template v-if="condition === 1">
-      <li :class="{current: currentPage === item}" v-for="item in range" :key="item" >{{item}}</li>
+      <li :class="{current: value === item}" v-for="item in range" :key="item" >{{item}}</li>
     </template>
     <template v-else-if="condition === 2">
-      <li :class="{current: currentPage === item}" v-for="item in range" :key="item" >{{item}}</li>
+      <li :class="{current: value === item}" v-for="item in range" :key="item" >{{item}}</li>
       <li class="dots">...</li>
     </template>
     <template v-else-if="condition === 3">
       <li class="dots">...</li>
-      <li :class="{current: currentPage === item}" v-for="item in range" :key="item" >{{item}}</li>
+      <li :class="{current: value === item}" v-for="item in range" :key="item" >{{item}}</li>
     </template>
     <template v-else>
       <li class="dots">...</li>
-      <li :class="{current: currentPage === item}" v-for="item in range" :key="item" >{{item}}</li>
+      <li :class="{current: value === item}" v-for="item in range" :key="item" >{{item}}</li>
       <li class="dots">...</li>
     </template>
-    <li :class="{current: currentPage === totalPages}">{{totalPages}}</li>
+    <li :class="{current: value === totalPages}">{{totalPages}}</li>
 
-    <li class="next" :class="{hidden: currentPage === totalPages}" @click.stop="next"> > </li>
+    <li class="next" :class="{hidden: value === totalPages}" @click.stop="next"> > </li>
   </ul>
 </template>
 
@@ -56,7 +56,6 @@ export default {
   data() {
     return {
       totalPages: 0,
-      currentPage: 1,
       totalButtons: 0,
     };
   },
@@ -77,7 +76,7 @@ export default {
 
   computed: {
     condition() {
-      const { currentPage, totalPages, totalButtons } = this.$data;
+      const { totalPages, totalButtons } = this.$data;
 
       // 1 2 3 4 5 6 7
       if (totalPages <= totalButtons) {
@@ -85,12 +84,12 @@ export default {
       }
 
       // 1 2 3 4 5 ... 7
-      if (totalPages > totalButtons && currentPage <= Math.ceil(totalButtons / 2)) {
+      if (totalPages > totalButtons && this.value <= Math.ceil(totalButtons / 2)) {
         return 2;
       }
 
       // 1 ... 5 6 7 8 9
-      if (totalPages > totalButtons && (totalPages - currentPage) < (totalButtons >> 1)) {
+      if (totalPages > totalButtons && (totalPages - this.value) < (totalButtons >> 1)) {
         return 3;
       }
 
@@ -99,7 +98,7 @@ export default {
     },
 
     range() {
-      const { currentPage, totalPages, totalButtons } = this.$data;
+      const { totalPages, totalButtons } = this.$data;
 
       let start = 0; let
         length = 0;
@@ -118,7 +117,7 @@ export default {
           length = totalButtons - 3;
           break;
         default:
-          start = currentPage - ((totalButtons - 4) >> 1);
+          start = this.value - ((totalButtons - 4) >> 1);
           length = totalButtons - 4;
       }
 
@@ -143,16 +142,15 @@ export default {
     },
 
     prev() {
-      this.changePage(this.currentPage - 1);
+      this.changePage(this.value - 1);
     },
 
     next() {
-      this.changePage(this.currentPage + 1);
+      this.changePage(this.value + 1);
     },
 
-    changePage(value) {
-      this.currentPage = value;
-      this.$emit('input', this.currentPage);
+    changePage(newPageNumber) {
+      this.$emit('input', newPageNumber);
     },
   },
 };
