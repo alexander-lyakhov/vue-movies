@@ -29,14 +29,14 @@ export default {
       }
     },
 
-    POPULATE_MOVIES(state, {data}) {
+    POPULATE_MOVIES(state, data) {
       const search = state.search.toLowerCase();
 
       state.searchBy === 'title' && state.searchIn === 'start' ?
-        state.movies = data.filter(item => item.title.toLowerCase().startsWith(search)):
-        state.movies = data;
+        state.movies = data.data.filter(item => item.title.toLowerCase().startsWith(search)):
+        state.movies = data.data;
 
-      state.total = state.movies.length;
+      state.total = data.total;
     },
 
   },
