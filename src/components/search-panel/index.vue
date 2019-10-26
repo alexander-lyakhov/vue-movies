@@ -5,7 +5,7 @@
     </div>
 
     <div class="query">
-      <input type="text" class="query-input" ref="query-input" v-model.trim="search" @keydown.enter="setSearch">
+      <input type="text" class="query-input" ref="query-input" v-model.trim="searchQuery" @keydown.enter="setSearch">
       <a class="query-clear" href="#" @click.prevent="clearSearch">+</a>
     </div>
 
@@ -17,15 +17,6 @@
         <radio-item name="searchBy" v-model="searchBy" val="genres" label="Genre" />
       </radio-selector>
 
-      <template v-if="isSearchInVisible">
-        <span class="search-in">Search pos.</span>
-
-        <radio-selector class="drop-shadow">
-          <radio-item name="searchIn" v-model="searchIn" val="start" label="Start" checked />
-          <radio-item name="searchIn" v-model="searchIn" val="global" label="Global" />
-        </radio-selector>
-      </template>
-
       <a class="button btn-search lg" href="#" @click="setSearch">Search</a>
     </div>
   </div>
@@ -33,6 +24,7 @@
 
 <script>
 
+import { mapState } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
 import { radioItem, radioSelector } from '@/components/radio';
 
@@ -46,13 +38,8 @@ export default {
 
   data() {
     return {
-      search: '',
-      isSearchInVisible: true
+      searchQuery: '',
     };
-  },
-
-  created() {
-    this.$watch('searchBy', () => this.isSearchInVisible = this.searchBy === 'title', { immediate: true });
   },
 
   mounted() {
@@ -60,12 +47,13 @@ export default {
   },
 
   computed: {
+    ...mapState('movies', ['search']),
     ...mapFields('movies', ['searchBy', 'searchIn', 'sortBy', 'sortOrder']),
   },
 
   methods: {
     setSearch() {
-      this.$store.commit('movies/SET_SEARCH', this.search);
+      this.$store.commit('movies/SET_SEARCH', this.searchQuery);
     },
 
     clearSearch() {

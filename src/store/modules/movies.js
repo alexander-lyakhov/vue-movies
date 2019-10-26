@@ -9,7 +9,6 @@ export default {
     total: 0,
     search: '',
     searchBy: '',
-    searchIn: 'start',
     sortBy: '',
     sortOrder: '',
     offset: 0,
@@ -30,12 +29,7 @@ export default {
     },
 
     POPULATE_MOVIES(state, data) {
-      const search = state.search.toLowerCase();
-
-      state.searchBy === 'title' && state.searchIn === 'start' ?
-        state.movies = data.data.filter(item => item.title.toLowerCase().startsWith(search)):
-        state.movies = data.data;
-
+      state.movies = data.data;
       state.total = data.total;
     },
 
