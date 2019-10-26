@@ -9,6 +9,7 @@ export default {
     total: 0,
     search: '',
     searchBy: '',
+    searchIn: 'start',
     sortBy: '',
     sortOrder: '',
     offset: 0,
@@ -28,9 +29,14 @@ export default {
       }
     },
 
-    POPULATE_MOVIES(state, data) {
-      state.movies = data.data;
-      state.total = data.total;
+    POPULATE_MOVIES(state, {data}) {
+      const search = state.search.toLowerCase();
+
+      state.searchIn === 'start' ?
+        state.movies = data.filter(item => item.title.toLowerCase().startsWith(search)):
+        state.movies = data;
+
+      state.total = state.movies.length;
     },
 
   },

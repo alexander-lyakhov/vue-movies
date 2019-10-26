@@ -17,6 +17,13 @@
         <radio-item name="searchBy" v-model="searchBy" val="genres" label="Genre" />
       </radio-selector>
 
+      <span class="search-in">Search pos.</span>
+
+      <radio-selector class="drop-shadow">
+        <radio-item name="searchIn" v-model="searchIn" val="start" label="Start" checked />
+        <radio-item name="searchIn" v-model="searchIn" val="global" label="Global" />
+      </radio-selector>
+
       <a class="button btn-search lg" href="#" @click="setSearch">Search</a>
     </div>
   </div>
@@ -46,7 +53,7 @@ export default {
   },
 
   computed: {
-    ...mapFields('movies', ['searchBy', 'sortBy', 'sortOrder']),
+    ...mapFields('movies', ['searchBy', 'searchIn', 'sortBy', 'sortOrder']),
   },
 
   methods: {
@@ -115,8 +122,12 @@ $cross-hover-color: #e0e0e0;
   align-items: center;
   margin-top: auto;
 
-  .search-by, .sort-by, .sort-order {
+  .search-by, .search-in, .sort-by, .sort-order {
     margin-right: .5rem;
+  }
+
+  .search-in {
+    color: #048;
   }
 
   .radio-selector {

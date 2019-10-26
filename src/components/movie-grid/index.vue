@@ -28,7 +28,7 @@ export default {
   },
 
   computed: {
-    ...mapState('movies', ['movies', 'search', 'searchBy', 'offset', 'sortBy', 'sortOrder']),
+    ...mapState('movies', ['movies', 'search', 'searchBy', 'searchIn', 'offset', 'sortBy', 'sortOrder']),
   },
 
   watch: {
@@ -37,6 +37,10 @@ export default {
     },
 
     searchBy(nVal, oVal) {
+      this.offset ? this.reset() : this.getMovies();
+    },
+
+    searchIn(nVal, oVal) {
       this.offset ? this.reset() : this.getMovies();
     },
 
