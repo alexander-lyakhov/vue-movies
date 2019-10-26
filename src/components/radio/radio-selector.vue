@@ -1,22 +1,8 @@
 <template>
-  <div class="radio-selector" :class="{disabled: disabled}">
+  <div class="radio-selector">
     <slot></slot>
   </div>
 </template>
-
-<script>
-
-export default {
-  name: 'radio-selector',
-
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
   $primary-color: $orange;

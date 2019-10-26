@@ -17,12 +17,14 @@
         <radio-item name="searchBy" v-model="searchBy" val="genres" label="Genre" />
       </radio-selector>
 
-      <span class="search-in">Search pos.</span>
+      <template v-if="isSearchInVisible">
+        <span class="search-in">Search pos.</span>
 
-      <radio-selector class="drop-shadow" disabled>
-        <radio-item name="searchIn" v-model="searchIn" val="start" label="Start" checked />
-        <radio-item name="searchIn" v-model="searchIn" val="global" label="Global" />
-      </radio-selector>
+        <radio-selector class="drop-shadow">
+          <radio-item name="searchIn" v-model="searchIn" val="start" label="Start" checked />
+          <radio-item name="searchIn" v-model="searchIn" val="global" label="Global" />
+        </radio-selector>
+      </template>
 
       <a class="button btn-search lg" href="#" @click="setSearch">Search</a>
     </div>
@@ -45,7 +47,12 @@ export default {
   data() {
     return {
       search: '',
+      isSearchInVisible: true
     };
+  },
+
+  created() {
+    this.$watch('searchBy', () => this.isSearchInVisible = this.searchBy === 'title', { immediate: true });
   },
 
   mounted() {
