@@ -13,8 +13,8 @@
       <span class="search-by">Search by</span>
 
       <radio-selector class="drop-shadow">
-        <radio-item name="searchBy" v-model="searchBy" val="title" label="Title" checked />
-        <radio-item name="searchBy" v-model="searchBy" val="genres" label="Genre" />
+        <radio-item name="searchBy" v-model="searchBy" val="title" label="Title" :checked="searchBy === 'title'" />
+        <radio-item name="searchBy" v-model="searchBy" val="genres" label="Genre" :checked="searchBy === 'genres'"/>
       </radio-selector>
 
       <a class="button btn-search lg" href="#" @click="setSearch">Search</a>
@@ -24,7 +24,6 @@
 
 <script>
 
-import { mapState } from 'vuex';
 import { mapFields } from 'vuex-map-fields';
 import { radioItem, radioSelector } from '@/components/radio';
 
@@ -46,9 +45,21 @@ export default {
     this.$refs['query-input'].focus();
   },
 
+  watch: {
+    search(val) {
+      this.searchQuery = val;
+    },
+
+    '$route'(to, from) {
+      if (to.name === 'home') {
+        this.searchBy = to.query.searchBy || 'title';
+        this.search = to.query.search || '';
+      }
+    }
+  },
+
   computed: {
-    ...mapState('movies', ['search']),
-    ...mapFields('movies', ['searchBy', 'searchIn', 'sortBy', 'sortOrder']),
+    ...mapFields('movies', ['searchBy', 'search', 'sortBy', 'sortOrder']),
   },
 
   methods: {
@@ -57,7 +68,7 @@ export default {
     },
 
     clearSearch() {
-      this.search = '';
+      this.searchQuery = '';
       this.setSearch();
       this.$refs['query-input'].focus();
     },

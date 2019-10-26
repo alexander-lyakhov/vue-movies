@@ -30,7 +30,7 @@
           <div class="row">
             <div class="label">Genre</div>
             <div class="value">
-              <span v-for="(genre, index) in info.genres" :key="index">
+              <span class="genre" v-for="(genre, index) in info.genres" :key="index" @click="searchByGenre(genre)">
                 {{genre}}
               </span>
             </div>
@@ -98,6 +98,10 @@ export default {
         this.showInfo = true;
       });
     },
+
+    searchByGenre(val) {
+      this.$router.push({name: 'home', query: {searchBy: 'genres', search: val}});
+    }
   },
 };
 </script>
@@ -176,6 +180,10 @@ export default {
             border-radius: 4px;
             margin-left: 4px;
             padding: 0.25rem .5rem;
+
+            &.genre {
+              cursor: pointer;
+            }
           }
         }
       }

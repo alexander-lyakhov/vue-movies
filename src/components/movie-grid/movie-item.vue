@@ -28,7 +28,6 @@ export default {
 
   methods: {
     gotoToMovie(id) {
-      console.log('gotoToMovie', id);
       this.$router.push({ name: 'movie', params: { id } });
     },
   },
