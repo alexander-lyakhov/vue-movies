@@ -19,7 +19,7 @@
 
       <span class="search-in">Search pos.</span>
 
-      <radio-selector class="drop-shadow">
+      <radio-selector class="drop-shadow" disabled>
         <radio-item name="searchIn" v-model="searchIn" val="start" label="Start" checked />
         <radio-item name="searchIn" v-model="searchIn" val="global" label="Global" />
       </radio-selector>

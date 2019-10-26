@@ -32,7 +32,7 @@ export default {
     POPULATE_MOVIES(state, {data}) {
       const search = state.search.toLowerCase();
 
-      state.searchIn === 'start' ?
+      state.searchBy === 'title' && state.searchIn === 'start' ?
         state.movies = data.filter(item => item.title.toLowerCase().startsWith(search)):
         state.movies = data;
 

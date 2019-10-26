@@ -1,13 +1,30 @@
 <template>
-  <div class="radio-selector">
+  <div class="radio-selector" :class="{disabled: disabled}">
     <slot></slot>
   </div>
 </template>
 
-<style lang="scss">
+<script>
+
+export default {
+  name: 'radio-selector',
+
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
   $primary-color: $orange;
   $secondary-color: $cyan;
   $bg-color: #282828;
+  $bg-color--disabled: #404040;
+  $border-color--disabled: #808080;
+  $text-color--disabled: #c0c0c0;
 
   .radio-selector {
     background: $bg-color;
@@ -20,7 +37,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     }
 
-    label {
+    &::v-deep label {
       font-family: inherit;
       font-size: 1rem;
       user-select: none;
@@ -45,12 +62,32 @@
       }
     }
 
-    &.small {
+    &::v-deep.small {
       label {
         [type="radio"] {
           & + span {
             min-width: 48px;
             padding: 2px 4px;
+          }
+        }
+      }
+    }
+
+    &::v-deep.disabled {
+      background: $bg-color--disabled;
+      border: 2px solid $border-color--disabled;
+
+      label {
+        cursor: default;
+
+        [type="radio"] {
+          & + span {
+            border: 2px solid $bg-color--disabled;
+          }
+
+          &:checked + span {
+            color: $text-color--disabled;
+            background: $border-color--disabled;
           }
         }
       }
