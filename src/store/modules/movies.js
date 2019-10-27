@@ -8,7 +8,7 @@ export default {
     movies: [],
     total: 0,
     search: '',
-    searchBy: '',
+    searchBy: 'title',
     sortBy: '',
     sortOrder: '',
     offset: 0,
