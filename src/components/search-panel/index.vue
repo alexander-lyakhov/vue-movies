@@ -52,8 +52,8 @@ export default {
 
     '$route'(to, from) {
       if (to.name === 'home') {
-        this.searchBy = to.query.searchBy || 'title';
-        this.search = to.query.search || '';
+        this.searchBy = to.params.searchBy || 'title';
+        this.search = to.params.search || '';
       }
     }
   },

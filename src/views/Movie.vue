@@ -100,7 +100,7 @@ export default {
     },
 
     searchByGenre(val) {
-      this.$router.push({name: 'home', query: {searchBy: 'genres', search: val}});
+      this.$router.push({name: 'home', params: {searchBy: 'genres', search: val}});
     }
   },
 };
