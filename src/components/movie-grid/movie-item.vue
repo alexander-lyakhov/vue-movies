@@ -3,7 +3,10 @@
 <template>
   <div class="movie-item--wrapper" @click="gotoToMovie(movie.id)">
     <div class="movie-item">
-      <img :src="movie.poster_path" />
+      <div v-if="!isPosterLoaded" class="movie-item__poster-fallback">
+        <span>Movie Poster</span>
+      </div>
+      <img v-else :src="movie.poster_path" />
       <div class="release-date">{{movie.release_date.substr(0, 4)}}</div>
       <div class="info">
         <div class="title">{{movie.title}}</div>
@@ -23,7 +26,20 @@ export default {
     default: () => ({}),
   },
 
+  data() {
+    return {
+      isPosterLoaded: false
+    }
+  },
+
   created() {
+    this.img = new Image();
+    this.img.addEventListener('load', () => this.isPosterLoaded = true)
+    this.img.src = this.movie.poster_path;
+  },
+
+  beforeDestroy() {
+    delete this.img;
   },
 
   methods: {
@@ -52,6 +68,15 @@ export default {
 
     &:hover {
       z-index: 1;
+    }
+
+    &__poster-fallback {
+      font-size: 2rem;
+      background: #404040;
+      height: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     img {
