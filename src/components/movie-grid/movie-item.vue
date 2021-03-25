@@ -4,9 +4,9 @@
   <div class="movie-item--wrapper" @click="gotoToMovie(movie.id)">
     <div class="movie-item">
       <div v-if="!isPosterLoaded" class="movie-item__poster-fallback">
-        <span>Movie Poster</span>
+        <img :src="posterFallback" />
       </div>
-      <img v-else :src="movie.poster_path" />
+      <img v-else class="movie-item__poster" :src="movie.poster_path" />
       <div class="release-date">{{movie.release_date.substr(0, 4)}}</div>
       <div class="info">
         <div class="title">{{movie.title}}</div>
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+
+import posterFallback from '@/assets/poster-fallback.png';
 
 export default {
   name: 'movie-item',
@@ -28,7 +30,8 @@ export default {
 
   data() {
     return {
-      isPosterLoaded: false
+      isPosterLoaded: false,
+      posterFallback
     }
   },
 
@@ -72,14 +75,18 @@ export default {
 
     &__poster-fallback {
       font-size: 2rem;
-      background: #404040;
+      background: #0078d4;
       height: 320px;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      img {
+        width: 100%;
+      }
     }
 
-    img {
+    &__poster {
       border: none;
       outline: none;
       width: 100%;
